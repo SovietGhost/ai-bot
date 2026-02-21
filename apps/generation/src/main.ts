@@ -4,6 +4,7 @@ import { Worker } from "bullmq";
 const connectionOptions: ConnectionOptions = {
     host: process.env.REDIS_HOST || "localhost",
     port: +(process.env.REDIS_PORT ?? 6379),
+    maxRetriesPerRequest: null,
 };
 
 export const telegramWorker = new Worker(
